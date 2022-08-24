@@ -1,6 +1,17 @@
 #include <iostream>
 #include <set>
 
+template <typename T>
+auto less_than_eq(const std::set<T> &seq, const T &val)
+{
+    auto it = seq.lower_bound(val);
+    if (*it == val)
+        return it;
+    else if (it != seq.begin()) // only case it==begin() is *it==val
+        return --it;
+    return seq.end();
+}
+
 int main()
 {
     using namespace std;
