@@ -1,17 +1,1 @@
-namespace CP
-{
-    template <typename T1, typename T2>
-    class pair
-    {
-    public:
-        T1 first;
-        T2 second;
-        bool operator>=(const pair &) const;
-    };
-}
-
-template <typename T1, typename T2>
-bool CP::pair<T1, T2>::operator>=(const CP::pair<T1, T2> &other) const
-{
-    return this->first > other.first || this->first == other.first && this->second >= other.second;
-}
+template<class A,class B>bool CP::pair<A,B>::operator>=(const CP::pair<A,B>&b)const{return this->first>b.first||this->first==b.first&&this->second>=b.second;}
