@@ -13,7 +13,7 @@ bool CP::vector<T>::block_swap(iterator a, iterator b, size_t m)
         return false;
     if (!(valid_iter(a) && valid_iter(b) && valid_iter(a + m - 1) && valid_iter(b + m - 1)))
         return false;
-    if (max(a, b) > min(a + m - 1, b + m - 1))
+    if (max(a, b) <= min(a + m - 1, b + m - 1))
         return false;
     while (m--)
     {
