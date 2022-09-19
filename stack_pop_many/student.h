@@ -20,20 +20,12 @@ std::stack<T> CP::stack<T>::remove_top(size_t K)
     // don't forget to return an std::stack
     K = K > mSize ? mSize : K;
     std::stack<T> s;
-    while (K--)
+    for (size_t i = mSize - K; i < mSize; ++i)
     {
-        T t = mData[mSize - 1];
-        --mSize;
-        s.emplace(std::move(t));
+        s.emplace(mData[i]);
     }
-    std::stack<T> s2;
-    while (s.size())
-    {
-        T t = s.top();
-        s.pop();
-        s2.emplace(std::move(t));
-    }
-    return s2;
+    mSize -= K;
+    return s;
 }
 
 #endif
